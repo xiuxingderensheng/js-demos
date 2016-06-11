@@ -1,0 +1,109 @@
+@charset "UTF-8";
+/*定义一个函数*/
+/*定义变量*/
+.toolbar {
+  position: fixed;
+  left: 50%;
+  bottom: 5px;
+  /*使工具条居中*/
+  margin-left: -26px;
+}
+
+.toolbar-item {
+  position: relative;
+  display: block;
+  width: 52px;
+  height: 52px;
+  background-image: url(../images/toolbar.png);
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  -webkit-transition: background-position 0.7s;
+  -moz-transition: background-position 0.7s;
+  -ms-transition: background-position 0.7s;
+  -o-transition: background-position 0.7s;
+  transition: background-position 0.7s;
+}
+.toolbar-item:hover .toolbar-layer {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+
+.toolbar-item-weixin {
+  background-position: 0 0px;
+}
+.toolbar-item-weixin:hover {
+  background-position: 0 -53px;
+}
+.toolbar-item-weixin .toolbar-layer {
+  height: 222px;
+  background-position: 0 0;
+}
+
+.toolbar-item-feedback {
+  background-position: 0 -105px;
+}
+.toolbar-item-feedback:hover {
+  background-position: 0 -157px;
+}
+
+.toolbar-item-app {
+  background-position: 0 -209px;
+}
+.toolbar-item-app:hover {
+  background-position: 0 -261px;
+}
+.toolbar-item-app .toolbar-layer {
+  height: 222px;
+  background-position: 0 -225px;
+}
+
+.toolbar-item-top {
+  background-position: 0 -313px;
+}
+.toolbar-item-top:hover {
+  background-position: 0 -367px;
+}
+
+.toolbar-layer {
+  position: absolute;
+  right: 56px;
+  bottom: 0;
+  width: 190px;
+  background-image: url(../images/tupian.png);
+  background-repeat: no-repeat;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -ms-transform: scale(0.01);
+  -webkit-transform: scale(0.01);
+  -moz-transform: scale(0.01);
+  -o-transform: scale(0.01);
+  transform: scale(0.01);
+  -webkit-box-shadow: 0px 0px 10px #888888;
+  -moz-box-shadow: 0px 0px 10px #888888;
+  -ms-box-shadow: 0px 0px 10px #888888;
+  -o-box-shadow: 0px 0px 10px #888888;
+  box-shadow: 0px 0px 10px #888888;
+  -webkit-transform-origin: right bottom;
+  -moz-transform-origin: right bottom;
+  -ms-transform-origin: right bottom;
+  -o-transform-origin: right bottom;
+  transform-origin: right bottom;
+  -webkit-transition: all 0.7s;
+  -moz-transition: all 0.7s;
+  -ms-transition: all 0.7s;
+  -o-transition: all 0.7s;
+  transition: all 0.7s;
+}
+
+/*
+1.html结构简单
+2.兼容性好，经过调整可以兼容IE6
+3.使用了大量的图片，对性能有一定的影响，并且不利于修改
+*/
+
+/*# sourceMappingURL=index.css.map */

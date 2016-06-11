@@ -1,0 +1,77 @@
+$toolbar-size: 52px;
+.toolbar-item, .toolbar-btn, .toolbar-icon, .toolbar-text{
+	width: $toolbar-size;
+	height: $toolbar-size;
+}
+.toolbar-icon, .toolbar-text{
+	position: absolute;
+	left: 0;
+	text-align: center;
+	@include transition(top 0.7s);
+}
+.toolbar{
+	position:fixed;
+	right: 20px;
+	bottom: 10px;
+}
+.toolbar-item{
+	position:relative;
+	display: block;
+	margin-top: 1px;
+
+	&:hover{
+		.toolbar-icon{
+			top: -$toolbar-size;
+		}
+		.toolbar-text{
+			top: 0;
+		}
+		.toolbar-layer{
+			@include opacity(1);
+			@include scale(1);
+		}
+	}
+}
+.toolbar-btn{
+	position:absolute;
+	left: 0;
+	top: 0;
+	overflow: hidden;
+	
+}
+.toolbar-icon{
+	top: 0;
+	background-color: #d0d6d9;
+	font-size: 30px;
+	color: #fff;
+	line-height: $toolbar-size;
+}
+.toolbar-text{
+	top: $toolbar-size;
+	background-color: #98a1a6;
+	font-size: 12px;
+	color: #fff;
+	padding-top: 12px;
+	line-height: 1.2;
+}
+.toolbar-layer{
+	position: absolute;
+	right: $toolbar-size + 5px;
+	bottom: 0px;
+	width: 190px;
+	background-image: url(../images/tupian.png);
+	background-repeat: no-repeat;
+	@include box-shadow(0 0 10px #000);
+	@include opacity(0);
+	@include transform-origin(bottom right);
+	@include scale(0.01);
+	@include transition(all 0.6s);
+}
+.toolbar-layer-weixin{
+	height: 222px;
+	background-position: 0 0;
+}
+.toolbar-layer-app{
+	height: 222px;
+	background-position: 0 -223px;
+}

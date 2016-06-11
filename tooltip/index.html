@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<!-- 当前页面的三要素 -->
+	<title>title</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		body{font-size:14px;line-height:1.8;background:url("images/6.jpg") no-repeat center top;font-family:"楷体";text-decoration:none;}
+		#demo{width:500px;margin:30px auto;padding:20px 30px;position:relative;background-color:#fff;border-radius:10px;box-shadow:0 0 8px #000;}
+		#demo h2{color:#03f;}
+		#demo .tooltip{color:#03f;curror:help;text-decoration:none;}
+		.tooltip-box{display:block;background:#fff;line-height:1.6;color:#333;padding:10px;font-size:20px;box-shadow:0 0 3px #6cf;border-radius:10px;overflow:auto;text-align:center;}
+	</style>
+</head>
+<body>
+	<div id="demo">
+		<h2>原生js实现tip效果</h2>
+		<div class="tooltip-box">hjskfhjdksalsfj;da</div>
+		<p>
+			看空来快递量就会吃唐僧江南小庄河村屯卧龙能龙港分别该龙江的冷静来劲双定积分廊坊凯龙凯积分来快递量就会吃唐僧江南小庄河筛分
+			<a href="" class="tooltip" id="tooltip1">唐僧</a>龙能龙港分别该龙江的冷静来劲双定积分廊坊凯龙凯积会吃唐江南小
+			<a href="" class="tooltip" id="tooltip2">定积分</a>庄河村屯卧龙能龙港分别该龙江的冷<a href="" class="tooltip" id="tooltip3">龙港</a>静来劲双定积分廊坊凯龙凯积分来快递量就会吃唐僧江南小庄河
+		</p>
+		<p>
+			看空来快递量就会吃唐僧江南小庄河村屯卧龙能龙港分别该龙江的冷静来劲双定积分廊坊凯龙凯积分来快递量就会吃唐僧江南小庄河筛分
+			<a href="" class="tooltip" id="tooltip4">唐僧</a>龙能龙港分别该龙江的冷静来劲双定积分廊坊凯龙凯积会吃唐江南小
+			<a href="" class="tooltip" id="tooltip5">定积分</a>庄河村屯卧龙能龙港分别该龙江的冷<a href="" class="tooltip" id="tooltip6">龙港</a>静来劲双定积分廊坊凯龙凯积分来快递量就会吃唐僧江南小庄河
+		</p>
+	</div>
+	<script type="text/javascript">
+		window.onload = function(){
+
+			var toolTipBoxClass = "tooltip-box";
+			var isIE = navigator.userAgent.indexOf("MSIE") > -1;
+			function showToolTip(obj, id, html, width, height){
+				if(document.getElementById(id)==null){
+					var toolTipBox;
+					toolTipBox = document.createElement("div");
+					toolTipBox.className = toolTipBoxClass;
+					toolTipBox.id = id;
+					toolTipBox.innerHTML = html;
+					obj.appendChild(toolTipBox);
+
+					toolTipBox.style.width = width? width + "px":"auto";
+					toolTipBox.style.height = height? height + "px":"auto";
+					if(!width && isIE){
+						toolTipBox.style.width = toolTipBox.offsetWidth;
+					}
+
+					toolTipBox.style.position = "absolute";
+					toolTipBox.style.display = "block";
+
+					var left = obj.offsetLeft;
+					var top = obj.offsetTop;
+
+					toolTipBox.style.left = left + "px";
+					toolTipBox.style.top = top + 20 + "px";
+
+					obj.onmouseleave = function(){
+						setTimeout(function(){
+							document.getElementById(id).style.display = "none";
+						}, 400);
+						
+					}
+				}else{
+					document.getElementById(id).style.display = "block";
+				}
+			}
+
+			var t1 = document.getElementById("tooltip1");
+			t1.onmouseenter = function(){
+				showToolTip(this, "t1", "师傅", 100, 40);
+			}
+			var t2 = document.getElementById("tooltip2");
+			t2.onmouseenter = function(){
+				showToolTip(this, "t2", " 定积分庄河村屯卧龙能龙港分", 200);
+			}
+			var t3 = document.getElementById("tooltip3");
+			t3.onmouseenter = function(){
+				showToolTip(this, "t3", "龙港静来劲双定积分廊坊凯龙凯", 200);
+			}
+			var t4 = document.getElementById("tooltip4");
+			t4.onmouseenter = function(){
+				showToolTip(this, "t4", '<img width="100" height="60" src="images/9.jpg">', 100);
+			}
+			var t5 = document.getElementById("tooltip5");
+			t5.onmouseenter = function(){
+				showToolTip(this, "t5", '江南小庄河村屯</br>卧龙能龙港分别</br>该龙江的冷静来</br>劲双定积分廊凯</br>龙凯积分来快就', 200);
+			}
+			var t6 = document.getElementById("tooltip6");
+			t6.onmouseenter = function(){
+				showToolTip(this, "t6", "师傅", 100, 40);
+			}
+		}
+	</script>
+</body>
+</html>

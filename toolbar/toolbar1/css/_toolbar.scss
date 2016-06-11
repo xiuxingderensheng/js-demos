@@ -1,0 +1,66 @@
+/*定义一个函数*/
+@mixin toolbar-item($pos, $hoverpos){
+	background-position: 0 $pos;
+	&:hover{
+		background-position: 0 $hoverpos;
+	}
+}
+/*定义变量*/
+$toolbar-size: 52px;
+.toolbar{
+	position: fixed;
+	left: 50%;
+	bottom: 5px;
+	/*使工具条居中*/
+	margin-left:-$toolbar-size / 2;
+}
+.toolbar-item{
+	position:relative;
+	display: block;
+	width: $toolbar-size;
+	height: $toolbar-size;
+	background-image: url(../images/toolbar.png);
+	background-repeat: no-repeat;
+	margin-top: 1px;
+	@include transition(background-position 0.7s);
+
+	&:hover{
+		.toolbar-layer{
+			@include opacity(1);
+			@include scale(1);
+		}
+	}
+}
+.toolbar-item-weixin{
+	@include toolbar-item(0px, -53px);
+	.toolbar-layer{
+		height:222px;
+		background-position: 0 0;
+	}
+}
+.toolbar-item-feedback{
+	@include toolbar-item(-105px, -157px);
+}
+.toolbar-item-app{
+	@include toolbar-item(-209px, -261px);
+	.toolbar-layer{
+		height:222px;
+		background-position: 0 -225px;
+	}
+}
+.toolbar-item-top{
+	@include toolbar-item(-313px, -367px);
+}
+.toolbar-layer{
+	position:absolute;
+	right:$toolbar-size + 4px;
+	bottom: 0;
+	width: 190px;
+	background-image: url(../images/tupian.png);
+	background-repeat: no-repeat;
+	@include opacity(0);
+	@include scale(0.01);
+	@include box-shadow(0px 0px 10px #888888);
+	@include transform-origin(right bottom);
+	@include transition(all 0.7s);
+}
